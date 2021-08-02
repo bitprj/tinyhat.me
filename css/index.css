@@ -80,3 +80,11 @@ input[type="file"] {
 .hidden {
     display: none;
 }
+
+.swiper-slide {
+    background-color: #333333;
+    margin-right: 2rem;
+    height: 100px !important;
+    border-radius: 10px;
+    text-align: center;
+}
