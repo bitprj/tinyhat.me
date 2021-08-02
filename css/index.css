@@ -24,6 +24,9 @@ body {
     font-size: 40px;
 }
 
+#exampleImage {
+    max-height: 15rem;
+}
 .navy {
     background-color: #123540;
     padding: 1rem;
