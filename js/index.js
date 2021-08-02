@@ -24,21 +24,28 @@ function getImage(event) {
         }
     }
 
-    if (fileInput.length > 0) {
+    if (fileInput.files.length > 0) {
+        console.log("file has been added")
         method = "POST"
         var formData = new FormData();
         formData.append("file", fileInput.files[0]);
         options = {
+            method,
             body: formData
         }
     }
 
     console.log("Making fetch")
     console.log(baseUrl)
+    console.log(options)
     fetch(baseUrl, options)
         .then(resp => resp.json())
         .then(data => {
             console.log(data)
+            exampleImage.src = data.result.finalBaby
+            console.log(exampleImage)
+            exampleImage.classList.remove("hidden")
+            spinner.classList.add("hidden")
         })
 
 }
