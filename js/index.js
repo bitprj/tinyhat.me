@@ -5,6 +5,8 @@ let fileInput = document.getElementById("file-upload");
 let numberInput = document.getElementById("numberHats");
 let typeInput = document.getElementById("typeInput");
 
+let baseUrl = "http://afebcb99496764eaeac38b3f3ee17545-643504213.us-east-2.elb.amazonaws.com/";
+
 function getImage(event) {
     event.preventDefault();
 
@@ -13,8 +15,6 @@ function getImage(event) {
     // show spinner and hide the person
     spinner.classList.remove("hidden");
     exampleImage.classList.add('hidden');
-
-    let baseUrl = "http://afebcb99496764eaeac38b3f3ee17545-643504213.us-east-2.elb.amazonaws.com/";
 
     if (typeInput) {
         baseUrl += typeInput.value;
@@ -48,4 +48,24 @@ function getImage(event) {
             spinner.classList.add("hidden")
         })
 
+}
+
+window.onload = async function getHats(event) {
+    event.preventDefault();
+
+    console.log("Getting hats")
+
+    let hats = await fetch(`${baseUrl}api/hats`, {
+        method: "GET"
+    })
+    let hatList = await hats.json()
+    console.log(hatList)
+
+    // loop through to populate options
+    for (var i = 0; i < hatList.length; i++) {
+        $('#HATSelect').find('select[id="typeInput"]').append($('<option/>', {
+            value: hatList[i].description,
+            text: hatList[i].description,
+        }));
+    }
 }
