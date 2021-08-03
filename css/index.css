@@ -69,6 +69,7 @@ input[type="file"] {
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
+    margin-bottom: 0;
 }
 
 .form-control, .form-control:focus {
@@ -83,8 +84,20 @@ input[type="file"] {
 
 .swiper-slide {
     background-color: #333333;
-    margin-right: 2rem;
     height: 100px !important;
     border-radius: 10px;
     text-align: center;
 }
+
+.swiper-pic {
+    width: 100px;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+
+  }
