@@ -4,6 +4,7 @@ let exampleImage = document.getElementById("exampleImage");
 let fileInput = document.getElementById("file-upload");
 let numberInput = document.getElementById("numberHats");
 let typeInput = document.getElementById("typeInput");
+let numberHats = document.getElementById("numberHats")
 
 function getImage(event) {
     event.preventDefault();
@@ -18,6 +19,11 @@ function getImage(event) {
 
     if (typeInput) {
         baseUrl += typeInput.value;
+
+        if (numberHats.value != undefined) {
+            baseUrl += `?number=${numberHats.value}`
+        }
+
         options = {
             method
         }
@@ -26,6 +32,11 @@ function getImage(event) {
     if (fileInput.files.length > 0) {
         console.log("file has been added")
         method = "POST"
+
+        if (numberHats.value != undefined) {
+            baseUrl += `?number=${numberHats.value}`
+        }
+        
         var formData = new FormData();
         formData.append("file", fileInput.files[0]);
         options = {
