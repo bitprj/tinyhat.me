@@ -87,6 +87,8 @@ window.onload = async function getHats(event) {
         // Optional parameters
         direction: 'horizontal',
         slidesPerView: 4,
+        slidesPerColumn: 3,
+        slidesPerColumnFill: 'row',
         spaceBetween: 10,
         speed: 1000,
         breakpoints: {
