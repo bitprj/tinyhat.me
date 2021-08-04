@@ -62,13 +62,24 @@ window.onload = async function getHats(event) {
     let hatList = await hats.json()
     console.log(hatList)
     let wrapper = document.querySelector(".swiper-wrapper");
-    // loop through to populate options and images
-    for (var i = 0; i < hatList.length; i++) {
-        $('#HATSelect').find('select[id="typeInput"]').append($('<option/>', {
-            value: hatList[i].description,
-            text: hatList[i].description,
-        }));
+    // loop through to populate options and image
 
+    var temp = [ ]
+    hatList_mod = hatList.filter((item)=>{
+        if(!temp.includes(item.description)){
+            temp.push(item.description)
+            return true;
+        }
+    })
+
+    for (var i = 0; i < hatList_mod.length; i++) {
+        $('#HATSelect').find('select[id="typeInput"]').append($('<option/>', {
+            value: hatList_mod[i].description,
+            text: hatList_mod[i].description,
+        }));
+    }
+
+    for (var i = 0; i < hatList.length; i++) {
         $('.swiper-wrapper').append(`<div class="swiper-slide d-flex align-items-center justify-content-center"><img class="img-fluid swiper-pic" width="100px" src="${hatList[i].url}" alt=""></div>`)
     }
 
