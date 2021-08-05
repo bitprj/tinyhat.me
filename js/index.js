@@ -36,7 +36,7 @@ function getImage(event) {
         if (numberHats.value != undefined) {
             baseUrl += `?number=${numberHats.value}`
         }
-        
+
         var formData = new FormData();
         formData.append("file", fileInput.files[0]);
         options = {
@@ -75,9 +75,9 @@ window.onload = async function getHats(event) {
     let wrapper = document.querySelector(".swiper-wrapper");
     // loop through to populate options and image
 
-    var temp = [ ]
-    hatList_mod = hatList.filter((item)=>{
-        if(!temp.includes(item.description)){
+    var temp = []
+    hatList_mod = hatList.filter((item) => {
+        if (!temp.includes(item.description)) {
             temp.push(item.description)
             return true;
         }
@@ -127,4 +127,6 @@ window.onload = async function getHats(event) {
 
     console.log("init swiper");
 
+    // set the number of hats there are
+    document.getElementById("numHats").innerHTML = hatList.length + " hats."
 }
