@@ -20,7 +20,7 @@ function getImage(event) {
     if (typeInput) {
         baseUrl += typeInput.value;
 
-        if (numberHats.value != undefined) {
+        if (numberHats.value != "") {
             baseUrl += `?number=${numberHats.value}`
         }
 
