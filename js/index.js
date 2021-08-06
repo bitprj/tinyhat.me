@@ -9,7 +9,7 @@ let numberHats = document.getElementById("numberHats")
 function getImage(event) {
     event.preventDefault();
 
-    let baseUrl = "http://afebcb99496764eaeac38b3f3ee17545-643504213.us-east-2.elb.amazonaws.com/";
+    let baseUrl = "http://a899a5c65ea2d44388ab536001d9176f-1094429580.us-east-2.elb.amazonaws.com/";
 
     let method = "GET";
     let options = {}
@@ -64,7 +64,7 @@ window.onload = async function getHats(event) {
     event.preventDefault();
 
     console.log("Getting hats")
-    let baseUrl = "http://afebcb99496764eaeac38b3f3ee17545-643504213.us-east-2.elb.amazonaws.com/";
+    let baseUrl = "http://a899a5c65ea2d44388ab536001d9176f-1094429580.us-east-2.elb.amazonaws.com/";
 
     // get description and image links
     let hats = await fetch(`${baseUrl}api/hats`, {
