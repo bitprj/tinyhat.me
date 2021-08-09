@@ -9,7 +9,7 @@ let numberHats = document.getElementById("numberHats")
 function getImage(event) {
     event.preventDefault();
 
-    let baseUrl = "http://a899a5c65ea2d44388ab536001d9176f-1094429580.us-east-2.elb.amazonaws.com/";
+    let baseUrl = "https://api.tinyhat.me/";
 
     let method = "GET";
     let options = {}
@@ -33,7 +33,7 @@ function getImage(event) {
         console.log("file has been added")
         method = "POST"
 
-        if (numberHats.value != undefined) {
+        if (numberHats.value != "") {
             baseUrl += `?number=${numberHats.value}`
         }
 
