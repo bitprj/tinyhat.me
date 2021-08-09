@@ -64,7 +64,7 @@ window.onload = async function getHats(event) {
     event.preventDefault();
 
     console.log("Getting hats")
-    let baseUrl = "http://a899a5c65ea2d44388ab536001d9176f-1094429580.us-east-2.elb.amazonaws.com/";
+    let baseUrl = "https://api.tinyhat.me/";
 
     // get description and image links
     let hats = await fetch(`${baseUrl}api/hats`, {
