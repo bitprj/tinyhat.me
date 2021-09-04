@@ -9,7 +9,7 @@ let numberHats = document.getElementById("numberHats")
 function getImage(event) {
     event.preventDefault();
 
-    let baseUrl = "https://api.tinyhat.me/";
+    let baseUrl = "http://a01b26901e64c48d1a98bb18f811d60b-1730600791.us-west-2.elb.amazonaws.com/";
 
     let method = "GET";
     let options = {}
@@ -17,33 +17,34 @@ function getImage(event) {
     spinner.classList.remove("hidden");
     exampleImage.classList.add('hidden');
 
+
     if (typeInput) {
         baseUrl += typeInput.value;
 
-        if (numberHats.value != "") {
-            baseUrl += `?number=${numberHats.value}`
-        }
+
 
         options = {
             method
         }
     }
 
+    if (numberHats.value != "") {
+        baseUrl += `?number=${numberHats.value}`
+    }
+
     if (fileInput.files.length > 0) {
         console.log("file has been added")
         method = "POST"
 
-        if (numberHats.value != "") {
-            baseUrl += `?number=${numberHats.value}`
-        }
-
         var formData = new FormData();
+        console.log(fileInput.files[0]);
         formData.append("file", fileInput.files[0]);
         options = {
             method,
             body: formData
         }
     }
+    // console.log(formData.forEach(e => console.log(e)));
 
     console.log("Making fetch")
     console.log(baseUrl)
@@ -124,8 +125,6 @@ window.onload = async function getHats(event) {
             }
         }
     });
-
-    console.log("init swiper");
 
     // set the number of hats there are
     document.getElementById("numHats").innerHTML = hatList.length + " hats."
