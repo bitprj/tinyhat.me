@@ -14,7 +14,7 @@ Webcam.set({
 
 Webcam.attach('#my_camera');
 
-let audio = new Audio('../audio/meow.mp3');
+let audio = new Audio('../audio/pop.mp3');
 
 
 let hatCount = document.getElementById("hat-count");
