@@ -83,7 +83,7 @@ document.getElementById("snap").addEventListener('click', () => {
         console.log(file);
         // SaveBlobAs(file, "test.jpeg");
 
-        let baseUrl = "http://a01b26901e64c48d1a98bb18f811d60b-1730600791.us-west-2.elb.amazonaws.com/";
+        let baseUrl = "https://api.tinyhat.me/";
 
         baseUrl += document.getElementById("hat-type").alt;
         baseUrl += `?number=${hatCount.innerHTML}`
