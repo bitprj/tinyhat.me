@@ -9,7 +9,7 @@ let numberHats = document.getElementById("numberHats")
 function getImage(event) {
     event.preventDefault();
 
-    let baseUrl = "http://afebcb99496764eaeac38b3f3ee17545-643504213.us-east-2.elb.amazonaws.com/";
+    let baseUrl = "https://api.tinyhat.me/";
 
     let method = "GET";
     let options = {}
@@ -20,7 +20,7 @@ function getImage(event) {
     if (typeInput) {
         baseUrl += typeInput.value;
 
-        if (numberHats.value != undefined) {
+        if (numberHats.value != "") {
             baseUrl += `?number=${numberHats.value}`
         }
 
@@ -33,7 +33,7 @@ function getImage(event) {
         console.log("file has been added")
         method = "POST"
 
-        if (numberHats.value != undefined) {
+        if (numberHats.value != "") {
             baseUrl += `?number=${numberHats.value}`
         }
 
@@ -64,7 +64,7 @@ window.onload = async function getHats(event) {
     event.preventDefault();
 
     console.log("Getting hats")
-    let baseUrl = "http://afebcb99496764eaeac38b3f3ee17545-643504213.us-east-2.elb.amazonaws.com/";
+    let baseUrl = "https://api.tinyhat.me/";
 
     // get description and image links
     let hats = await fetch(`${baseUrl}api/hats`, {
