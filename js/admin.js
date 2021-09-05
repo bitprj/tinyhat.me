@@ -1,4 +1,12 @@
 window.onload = async () => {
+
+    let url = new URL(window.location.href);
+    let password = url.searchParams.get("password");
+
+    if (password != "ilovecats")
+        return;
+
+
     let resp = await fetch("https://api.tinyhat.me/admin");
     let data = await resp.json();
     addHats(data);
