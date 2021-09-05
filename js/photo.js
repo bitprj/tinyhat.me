@@ -27,6 +27,8 @@ let hatContainer = document.getElementById("hat-type");
 let hatIndex = 0;
 let hatList;
 
+
+
 window.onload = async () => {
     hatCount.innerHTML = hatCountList[hatCountIndex];
 
@@ -72,6 +74,7 @@ document.getElementById("count-container").addEventListener("click", () => {
 
 document.getElementById("snap").addEventListener('click', () => {
     audio.play();
+
     let spinner = document.getElementById('spinner');
     let result = document.getElementById('result');
     Webcam.snap(async function (data_uri) {
